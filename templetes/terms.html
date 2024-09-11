@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block terms %}
+    <br><br>
+    <div class="container bg-warning">
+    <h1>Terms of Service</h1>
+    <h4><b>1.introduction</b></h4>
+    <p>Purpose: Outline the purpose of the website and what users can expect.
+        Acceptance: State that by using the site, users agree to these terms.</p>
+    <h4><b>2.user responsibility</b></h4>
+    <p>Account Creation: If applicable, details on user accounts, responsibilities for maintaining account security, and accuracy of information provided.
+        Usage Rules: Guidelines on acceptable and prohibited use of the website.</p>
+        <h4><b>3.content</b></h4>
+    <p>User-Generated Content: Rules regarding any content users may post, such as comments or diet plans.
+        Intellectual Property: Clarify ownership of content on the website and any permissions users need to use it.</p>
+        <h4><b>4.Services Provided</b></h4>
+    <p>Diet Plans: Description of the diet plans offered, including any disclaimers about health advice.
+            Limitation of Liability: Limitations on the website’s liability for the accuracy of the diet charts or any consequences of following them.</p>   
+            <h4><b>5.Payments and Refunds</b></h4>
+            <p>Fees: Information on any fees for premium content or services.
+                Refund Policy: Terms for refunds, if applicable.</p>
+    {% endblock %}
+    
+</body>
+</html>

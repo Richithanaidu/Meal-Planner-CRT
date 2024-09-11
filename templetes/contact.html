@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block contact %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="{% static 'images/care.jpeg' %}" class="img img-thumbnail w-100">
+            </div>
+            <div class="col-sm-6">
+              <h1 class="text-primary" style="font-family: Agency FB;">CONTACT US on:</h1>
+               <div class="container-fluid">
+                <a class="text-decoration-none text-black" href="https://mail.google.com/mail/?view=cm&fs=1&to=mannepallivarshitha@gmail.com&su=Subject%20Here&body=Hello%20there!" target="_blank"><img src="{% static 'images/OIP.jpeg' %}" width="40px" height="40px" >   gmail</a>
+                <br>
+                <br>
+                <a class="text-decoration-none text-black " href="https://www.instagram.com/crazy_.girl8892/"target="_blank"><img src="{% static 'images/instalogo.webp' %}" width="40px" height="40px"  >   instagram</a>
+                <br>
+                <br>
+                <a class="text-decoration-none text-black" href="https://wa.me/7815995903" target="_blank"><img src="{% static 'images/what.png' %}" width="40px" height="40px" >   whatsapp</a>
+                <br>
+                <br>
+                <a class="text-decoration-none text-black" href="tel:+7815995903" target="_blank"><img src="{% static 'images/phone.jpg' %}" width="40px" height="40px" >   phone</a>
+                
+        </div>
+        </div>
+        {% endblock %}
+    
+</body>
+</html>

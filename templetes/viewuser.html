@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+{% extends "adminlayout.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% block content %}
+    
+<body>
+    
+        <h1 class="bg-info">admin page</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 p-4 overflow-scroll">
+    <table>
+        <thead>
+            <th>email</th>
+            <th>password</th>
+            <th>designation</th>
+        </thead>
+        {% for user in users %}
+        <tr>
+            <form action="/modify">
+                <td>
+                    <input name="email" type="text" value="{{user.email}}">
+                </td>
+            <td>
+                <input name="password" type="text"  value="{{user.password}}">
+            </td>
+            <td>
+                <input name="desig" type="text"  value="{{user.desig}}">
+            </td>
+            <td>
+                <button name="operation" class="btn btn-primary" value="update" type="submit">update</button>
+            </td>
+            <td>
+                <button name="operation" class="btn btn-danger" value="delete" type="submit">delete</button>
+            </td>
+         
+            </form>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</div>
+</div>
+</div>
+</body>
+{% endblock %}
+</html>

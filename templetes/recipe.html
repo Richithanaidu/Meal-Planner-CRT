@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+{% extends "layout.html" %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block table %}
+    <div class="container mt-3 col-lg-6 col-md-8 col-sm-10 col-xs-12 ">
+        <br><br>
+        <form class="mx-auto p-3 text-warning" id="log">
+            <h4>Recipe</h4>
+            <hr>
+            <div class="form-group">
+                <label for="date" class="text-warning">Date</label>
+                <input type="date" name="day" class="form-control" id="date">
+            </div>
+            <div class="form-group">
+                <label for="date" class="text-warning">Time</label>
+                <input type="time" name="day" class="form-control" id="time">
+            </div>
+            <div class="form-group">
+                <label for="name" class="mt-4">Recipe</label>
+                <input name="name" type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" rows="5" cols="30" class="form-control" id="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-warning mt-3">Add Data</button>
+        </form>
+        <hr>
+        <div class="mt-5">
+            <table class="table table-bordered table-dark recipe-container" id="table">
+                <thead>
+                    <tr>
+                        <th scope="col" style="background-color: rgb(96, 36, 32);">S.No.</th>
+                        <th scope="col" style="background-color: rgb(96, 36, 32);">Date</th>
+                        <th scope="col" style="background-color: rgb(96, 36, 32);">time</th>
+                        <th scope="col" style="background-color: rgb(96, 36, 32);">Recipe Name</th>
+                        <th scope="col" style="background-color: rgb(96, 36, 32);">Description</th>
+                        <th scope="col" style="background-color: rgb(96, 36, 32);">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+            <button style="background-color: rgb(96, 36, 32);" class="text-warning"><a href="pdf.html" download>generate pdf </button>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+        document.getElementById('log').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const name = document.getElementById('name').value;
+            const description = document.getElementById('description').value;
+            const tableBody = document.getElementById('table-body');
+            const newRow = document.createElement('tr');
+            const serialNumber = tableBody.rows.length + 1;
+            newRow.innerHTML = `
+                <td>${serialNumber}</td>
+                <td>${date}</td>
+                <td>${time}</td>
+                <td>${name}</td>
+                <td>${description}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm delete-btn">Delete</button>
+                </td>
+            `;
+            tableBody.appendChild(newRow);
+
+            // Clear the form
+            document.getElementById('log').reset();
+
+            // Add event listener to delete button
+            newRow.querySelector('.delete-btn').addEventListener('click', function() {
+                tableBody.removeChild(newRow);
+            });
+        });
+    </script>
+    {% endblock %}
+</body>
+</html>
